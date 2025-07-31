@@ -1,0 +1,524 @@
+(function() {
+    'use strict';
+    const loadingScreen = document.getElementById('loading-screen');
+    const navbar = document.getElementById('navbar');
+    const navToggle = document.getElementById('nav-toggle');
+    const navMenu = document.getElementById('nav-menu');
+    const themeToggle = document.getElementById('theme-toggle');
+    const backToTop = document.getElementById('back-to-top');
+    const contactForm = document.getElementById('contact-form');
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const projectCards = document.querySelectorAll('.project-card');
+
+    const typingTexts = [
+        'Frontend Developer',
+        'UI/UX Developer',
+        'Problem Solver',
+        'Quick Learner',
+        'Public Speaker'
+    ];
+
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(() => {
+            loadingScreen.classList.add('hidden');
+        }, 1500);
+
+        initNavigation();
+        initTypingAnimation();
+        initScrollAnimations();
+        initThemeToggle();
+        initContactForm();
+        initProjectFilter();
+        initSkillBars();
+        initParticles();
+        initBackToTop();
+        initSmoothScrolling();
+    });
+
+    function initNavigation() {
+      
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            navToggle.classList.toggle('active');
+        });
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+                navToggle.classList.remove('active');
+            });
+        });
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+                navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
+            } else {
+                navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.boxShadow = 'none';
+            }
+        });
+        const sections = document.querySelectorAll('section[id]');
+        const navLinks = document.querySelectorAll('.nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const scrollPosition = window.scrollY + 100;
+
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').substring(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    }
+
+    function initTypingAnimation() {
+        const typingElement = document.querySelector('.typing-text');
+        let textIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        let typeSpeed = 100;
+
+        function typeText() {
+            const currentText = typingTexts[textIndex];
+            
+            if (isDeleting) {
+                typingElement.textContent = currentText.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 50;
+            } else {
+                typingElement.textContent = currentText.substring(0, charIndex + 1);
+                charIndex++;
+                typeSpeed = 100;
+            }
+
+            if (!isDeleting && charIndex === currentText.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                textIndex = (textIndex + 1) % typingTexts.length;
+                typeSpeed = 500; // Pause before next text
+            }
+
+            setTimeout(typeText, typeSpeed);
+        }
+
+        
+        typeText();
+    }
+
+  
+    function initScrollAnimations() {
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animationPlayState = 'running';
+                    entry.target.classList.add('animate');
+                }
+            });
+        }, observerOptions);
+
+        const animatedElements = document.querySelectorAll(
+            '.education-card, .project-card, .certification-card, .skill-item, .contact-card, .stat-item'
+        );
+
+        animatedElements.forEach(el => {
+            el.style.animationPlayState = 'paused';
+            observer.observe(el);
+        });
+    }
+
+    function initThemeToggle() {
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        document.documentElement.setAttribute('data-theme', currentTheme);
+        
+        if (currentTheme === 'dark') {
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = document.documentElement.getAttribute('data-theme');
+            const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+            
+            document.documentElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+            
+            themeToggle.innerHTML = newTheme === 'dark' 
+                ? '<i class="fas fa-sun"></i>' 
+                : '<i class="fas fa-moon"></i>';
+        });
+    }
+    function initContactForm() {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitButton = contactForm.querySelector('button[type="submit"]');
+            const originalText = submitButton.innerHTML;
+            
+          
+            submitButton.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            submitButton.disabled = true;
+            
+        
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData);
+            
+            try {
+                
+                await new Promise(resolve => setTimeout(resolve, 2000));
+                
+                showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
+                contactForm.reset();
+                
+            } catch (error) {
+        
+                showNotification('Failed to send message. Please try again.', 'error');
+            } finally {
+                
+                submitButton.innerHTML = originalText;
+                submitButton.disabled = false;
+            }
+        });
+    }
+
+
+    function initProjectFilter() {
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+            
+                filterBtns.forEach(b => b.classList.remove('active'));
+                
+                btn.classList.add('active');
+                
+                const filter = btn.getAttribute('data-filter');
+                
+                projectCards.forEach(card => {
+                    const categories = card.getAttribute('data-category').split(' ');
+                    
+                    if (filter === 'all' || categories.includes(filter)) {
+                        card.style.display = 'block';
+                        card.classList.remove('hidden');
+                        
+                        setTimeout(() => {
+                            card.style.opacity = '1';
+                            card.style.transform = 'translateY(0)';
+                        }, 100);
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                            card.classList.add('hidden');
+                        }, 300);
+                    }
+                });
+            });
+        });
+    }
+
+
+    function initSkillBars() {
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        const skillObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const skillBar = entry.target;
+                    const width = skillBar.getAttribute('data-width');
+                    
+                    
+                    setTimeout(() => {
+                        skillBar.style.width = width + '%';
+                    }, 500);
+                    
+                    skillObserver.unobserve(skillBar);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        skillBars.forEach(bar => {
+            skillObserver.observe(bar);
+        });
+    }
+
+    
+    function initParticles() {
+        const particlesContainer = document.getElementById('particles');
+        const numberOfParticles = 20;
+
+        for (let i = 0; i < numberOfParticles; i++) {
+            createParticle(particlesContainer);
+        }
+
+        function createParticle(container) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            
+          
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            
+      
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            
+            const size = Math.random() * 4 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+            
+            container.appendChild(particle);
+        }
+    }
+
+    function initBackToTop() {
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+
+        backToTop.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    };
+    function initSmoothScrolling() {
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                
+                if (target) {
+                    const headerOffset = 70;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+
+  
+    function showNotification(message, type = 'info') {
+        
+        const existingNotifications = document.querySelectorAll('.notification');
+        existingNotifications.forEach(notification => notification.remove());
+
+        
+        const notification = document.createElement('div');
+        notification.className = `notification notification-${type}`;
+        notification.innerHTML = `
+            <div class="notification-content">
+                <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-circle'}"></i>
+                <span>${message}</span>
+                <button class="notification-close">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        `;
+
+
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: ${type === 'success' ? '#10b981' : '#ef4444'};
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1);
+            z-index: 10000;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            max-width: 400px;
+        `;
+
+        notification.querySelector('.notification-content').style.cssText = `
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        `;
+
+        notification.querySelector('.notification-close').style.cssText = `
+            background: none;
+            border: none;
+            color: white;
+            cursor: pointer;
+            padding: 0;
+            margin-left: auto;
+        `;
+
+      
+        document.body.appendChild(notification);
+
+
+        setTimeout(() => {
+            notification.style.transform = 'translateX(0)';
+        }, 100);
+
+    
+        setTimeout(() => {
+            removeNotification(notification);
+        }, 5000);
+
+        notification.querySelector('.notification-close').addEventListener('click', () => {
+            removeNotification(notification);
+        });
+    }
+
+    function removeNotification(notification) {
+        notification.style.transform = 'translateX(100%)';
+        setTimeout(() => {
+            if (notification.parentNode) {
+                notification.parentNode.removeChild(notification);
+            }
+        }, 300);
+    }
+
+    function debounce(func, wait, immediate) {
+        let timeout;
+        return function executedFunction() {
+            const context = this;
+            const args = arguments;
+            const later = function() {
+                timeout = null;
+                if (!immediate) func.apply(context, args);
+            };
+            const callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+        };
+    }
+
+    function throttle(func, limit) {
+        let lastFunc;
+        let lastRan;
+        return function() {
+            const context = this;
+            const args = arguments;
+            if (!lastRan) {
+                func.apply(context, args);
+                lastRan = Date.now();
+            } else {
+                clearTimeout(lastFunc);
+                lastFunc = setTimeout(function() {
+                    if ((Date.now() - lastRan) >= limit) {
+                        func.apply(context, args);
+                        lastRan = Date.now();
+                    }
+                }, limit - (Date.now() - lastRan));
+            }
+        };
+    }
+
+    const optimizedScrollHandler = throttle(() => {
+        // Scroll-based functionality here
+    }, 16); // ~60fps
+
+    window.addEventListener('scroll', optimizedScrollHandler);
+
+    document.addEventListener('keydown', (e) => {
+        
+        if (e.key === 'Tab') {
+            document.body.classList.add('keyboard-navigation');
+        }
+        
+        
+        if (e.key === 'Escape') {
+            navMenu.classList.remove('active');
+            navToggle.classList.remove('active');
+        }
+    });
+
+    
+    document.addEventListener('mousedown', () => {
+        document.body.classList.remove('keyboard-navigation');
+    });
+
+
+    document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', function() {
+            this.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgdmlld0JveD0iMCAwIDQwMCAzMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik0yMDAgMTUwTDE3NSAxMjVIMTI1VjE3NUgxNzVMMjAwIDE1MFoiIGZpbGw9IiM5Q0E0QUYiLz4KPC9zdmc+';
+            this.alt = 'Image not available';
+        });
+    });
+
+  
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    if (img.dataset.src) {
+                        img.src = img.dataset.src;
+                        img.classList.remove('lazy');
+                        imageObserver.unobserve(img);
+                    }
+                }
+            });
+        });
+
+        document.querySelectorAll('img[data-src]').forEach(img => {
+            imageObserver.observe(img);
+        });
+    }
+
+
+    function trackEvent(category, action, label) {
+      
+        console.log('Event tracked:', { category, action, label });
+    }
+
+    document.querySelectorAll('.btn, .project-link, .social-link').forEach(element => {
+        element.addEventListener('click', (e) => {
+            const elementType = e.target.classList.contains('btn') ? 'button' : 
+                               e.target.classList.contains('project-link') ? 'project' : 'social';
+            trackEvent('engagement', 'click', elementType);
+        });
+    });
+
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/sw.js')
+                .then(registration => {
+                    console.log('SW registered: ', registration);
+                })
+                .catch(registrationError => {
+                    console.log('SW registration failed: ', registrationError);
+                });
+        });
+    }
+
+    window.addEventListener('online', () => {
+        showNotification('You are back online!', 'success');
+    });
+
+    window.addEventListener('offline', () => {
+        showNotification('You are offline. Some features may not work.', 'info');
+    });
+
+   
