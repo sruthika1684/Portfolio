@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sruthika's Portfolio</title>
+    <link rel="stylesheet" href="main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+      <!-- Loading Screen -->
+    <div id="loading-screen" class="loading-screen">
+        <div class="loader">
+            <div class="loader-circle"></div>
+            <p>Loading Portfolio<3</p>
+        </div>
+    </div> 
+
+    <!-- Navigation -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <span>My Portfolio</span>
+            </div>
+            <div class="nav-menu" id="nav-menu">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#education" class="nav-link">Education</a>
+                <a href="#skills" class="nav-link">Skills</a>
+                <a href="#projects" class="nav-link">Projects</a>
+                <a href="#certifications" class="nav-link">Certifications</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </div>
+            <div class="nav-toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <button class="theme-toggle" id="theme-toggle">
+                <i class="fas fa-sun"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-greeting">
+                        <span class="wave">👋</span>
+                        <span><b>Hello everyone I am</b></span>
+                    </div>
+                    <h1 class="hero-name">Sruthika Parthasarathi</h1>
+                    <h2 class="hero-title">
+                        <span class="typing-text"></span>
+                        <span class="cursor">|</span>
+                    </h2>
+                    <p class="hero-description">
+                        Final-year ECE student with a strong interest in front-end development and UI/UX design.
+                        Skilled in HTML, CSS, JavaScript, and Python, with a solid foundation in C and Java.
+                        Experienced in designing user interfaces using Figma and creating motion graphics with Blender.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn btn-primary">
+                            <i class="fas fa-mobile-alt"></i>
+                         Get In Touch
+                        </a>
+                        <a href="resume.pdf" class="btn btn-secondary" download>
+                            <i class="fas fa-download"></i>
+                            Download Resume
+                        </a>
+                    </div>
+                    <div class="hero-social">
+                        <a href="https://github.com/sruthika1684" target="_blank" class="social-link">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" class="social-link">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.behance.net" target="_blank" class="social-link">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                        <a href="https://mail.google.com/mail/?view=cm&to=sru@gmail.com" class="social-link">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="profile-container">
+                        <img src="WhatsApp Image" 
+                             alt="sruthika-parthasarathi" class="profile-img">
+                        <div class="profile-bg"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="scroll-indicator">
+                <div class="scroll-mouse">
+                    <div class="scroll-wheel"></div>
+                </div>
+            </div>
+        </div>
+        <div class="hero-particles" id="particles"></div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">About Me</h2>
+                <p class="section-subtitle">Get to know me better</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>An Aspiring Electronics Engineer Ready to Make an Impact</h3>
+                    <p>
+                        I’m a final-year Electronics and Communication Engineering (ECE) student with a strong passion for front-end development and user experience design. I have intermediate skills in HTML, CSS, JavaScript, and Python, along with a solid foundation in C and Java. I enjoy blending design with functionality and have hands-on experience in UI/UX design using Figma and motion graphics with Blender.
+                    </p>
+                    <p>
+                    In addition to my technical skillset, I bring strong communication skills, a problem-solving mindset, and the ability to work both independently and within a team. I'm detail-oriented, adaptable, and always eager to learn and take on new challenges. I thrive in environments where I can contribute creative ideas, analyze user needs, and build engaging, responsive interfaces.
+                    </p>
+                    <p>
+                        My goal is to join a dynamic, forward-thinking team where I can grow as a developer, apply my creativity, and contribute to impactful digital products that enhance user experience. I’m committed to continuous learning and excited to shape meaningful solutions through a mix of code, design, and collaboration.
+                    </p>
+                    <div class="about-stats">
+                        <div class="stat-item">
+                            <div class="stat-number">15+</div>
+                            <div class="stat-label">UI/UX Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">5+</div>
+                            <div class="stat-label">GitHub Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">7.96</div>
+                            <div class="stat-label">CGPA</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number">100%</div>
+                            <div class="stat-label">Dedication</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-skills-preview">
+                    <h4>Quick Skills Overview</h4>
+                    <div class="skills-tags">
+                        <span class="skill-tag">JS</span>
+                        <span class="skill-tag">HTML</HTML></span>
+                        <span class="skill-tag">CSS</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">UI/UX</span>
+                        <span class="skill-tag">Motion Graphics</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">MS Office Suite</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="education">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Education</h2>
+                <p class="section-subtitle">My academic journey</p>
+            </div>
+            <div class="education-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="education-card">
+                            <div class="education-header">
+                                <div class="education-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <div class="education-info">
+                                    <h3>B.E. Electronics and Communication Engineering</h3>
+                                    <h4>KIT</h4></h4>
+                                    <p class="education-period">2022-2026</p>
+                                </div>
+                                <div class="education-gpa">
+                                    <span class="gpa-label">CGPA</span>
+                                    <span class="gpa-value">7.96</span>
+                                </div>
+                            </div>
+                            <div class="education-details">
+                                <p>
+                                    Pursuing comprehensive coursework in hardware and software development, 
+                                    algorithms, Designing, and web technologies. 
+                                </p>
+                                <div class="relevant-courses">
+                                    <h5>Relevant Coursework:</h5>
+                                    <div class="course-tags">
+                                        <span class="course-tag">Front-end Development</span>
+                                        <span class="course-tag">UI/UX Designing</span>
+                                        <span class="course-tag">Database Management Systems</span>
+                                        <span class="course-tag">Software Engineering</span>
+                                        <span class="course-tag">OOPs & Programming Languages</span>
+                                        <span class="course-tag">MS Office Suite</span>
+                                    </div>
+                                </div>
+                                <div class="achievements">
+                                    <h5>Activities:</h5>
+                                    <ul>
+                                        <li>Attended 5+ Symposiums</li>
+                                        <li>Attended 5+ Workshops</li>
+                                        <li>Participated in 10+ Hackathons</li>
+                                        <li>Solved 270+ Problems in CodeChef</li>
+                                        <li>Completed 15+ frontend projects</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="education-card">
+                            <div class="education-header">
+                                <div class="education-icon">
+                                    <i class="fas fa-school"></i>
+                                </div>
+                                <div class="education-info">
+                                    <h3>High School</h3>
+                                    <h4>BMHSS</h4>
+                                    <p class="education-period">2021-2022</p>
+                                </div>
+                                <div class="education-gpa">
+                                    <span class="gpa-label">Percentage</span>
+                                    <span class="gpa-value">78%</span>
+                                </div>
+                            </div>
+                            <div class="education-details">
+                                <p>
+                                    Focused on state board with particular emphasis on 
+                                    mathematics and computer science.
+                                </p>
+                                <div class="achievements">
+                                    <h5>Activities:</h5>
+                                    <ul>
+                                        <li>Basket ball player</li>
+                                        <li>Class leader</li>
+                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Skills & Technologies</h2>
+                <p class="section-subtitle">Technologies I've learned and practiced</p>
+            </div>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <div class="category-header">
+                        <i class="fas fa-code"></i>
+                        <h3>Frontend Development</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">HTML5</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">CSS3</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">JavaScript</span>
+                                <span class="skill-percentage">80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="80"></div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <div class="category-header">
+                        
+                        <h3>Programming Languages</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Python</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">C</span>
+                                <span class="skill-percentage">65%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="65"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Java</span>
+                                <span class="skill-percentage">45%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="45"></div>
+                            </div>
+                        </div>
+        
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <div class="category-header">
+                        <i class="fas fa-tools"></i>
+                        <h3>Tools & Others</h3>
+                    </div>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Git & GitHub</span>
+                                <span class="skill-percentage">75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Figma</span>
+                                <span class="skill-percentage">85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">VS Code</span>
+                                <span class="skill-percentage">90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-info">
+                                <span class="skill-name">Motion Graphics</span>
+                                <span class="skill-percentage">40%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-width="40"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Academic & Personal Projects</h2>
+                <p class="section-subtitle">Showcasing my learning journey</p>
+                <p class="section-subtitle">(front-end development)</p>
+            </div>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All Projects</button>
+                <button class="filter-btn" data-filter="web">Web Development</button>
+                <button class="filter-btn" data-filter="mobile">Mobile</button>
+                <button class="filter-btn" data-filter="academic">Academic</button>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop" alt="E-commerce Website">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>E-commerce Website</h3>
+                        <p>A fully responsive e-commerce website built with HTML, CSS, and JavaScript. Features include product catalog, shopping cart, and user authentication.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">LocalStorage</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web academic">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1611224923853-80b023f02d71?w=600&h=400&fit=crop" alt="Task Manager">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Task Manager</h3>
+                        <p>A Task Managing App is a web app where users can add, complete, edit, or delete tasks using HTML, CSS, and JavaScript. It helps practice form handling, DOM manipulation, and dynamic rendering. Optional features like filters, dark mode, and localStorage enhance its functionality and polish.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop" alt="Weather App">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Weather Dashboard</h3>
+                        <p>A Weather Dashboard is a web app that fetches real-time weather data for any city using HTML, CSS, JavaScript, and a weather API (like OpenWeatherMap). It displays temperature, humidity, conditions, and icons dynamically. This project shows API integration, async JavaScript, and clean UI design skills.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML</HTML></span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Chart.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="academic">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=600&h=400&fit=crop" alt="Algorithm Visualizer">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Algorithm Visualizer</h3>
+                        <p>An Algorithm Visualizer is a web app that visually demonstrates how algorithms (like sorting, searching, pathfinding) work step-by-step using HTML, CSS, and JavaScript. It animates the logic (like swaps in sorting) to help users understand the flow. This project showcases DOM manipulation, animations, and data structure understanding.</p>
+                
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">Animation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="web">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&h=400&fit=crop" alt="Study Planner">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Student Study Planner</h3>
+                        <p>A Student Study Planner is a web app that helps students schedule and manage their study time using HTML, CSS, and JavaScript. Users can add subjects, set study times, track progress, and view daily or weekly plans. It highlights skills in form handling, dynamic scheduling, and user-friendly UI design.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JS</span>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="project-card" data-category="mobile academic">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop" alt="Campus Navigator">
+                        <div class="project-overlay">
+                            <div class="project-links">
+                                <a href="#" class="project-link" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                </a>
+                                <a href="#" class="project-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3>Campus Navigator</h3>
+                        <p>A Campus Navigator is a web app that helps students explore their college campus using interactive maps built with HTML, CSS, and JavaScript. Users can search for departments, classrooms, or facilities and get directions or highlights. This project showcases interactive UI, basic geolocation/map integration, and responsive design skills.</p>
+                        <div class="project-tech">
+                            <span class="tech-tag">HTML & CSS</span>
+                            <span class="tech-tag">Geolocation API</span>
+                            <span class="tech-tag">JS</span>
+                            <span class="tech-tag">Responsive</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Certifications & Courses</h2>
+                <p class="section-subtitle">Continuous learning and skill development</p>
+            </div>
+            <div class="certifications-grid">
+                <div class="certification-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-python"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>Fundamentals of python</h3>
+                        <p class="cert-issuer">Infosys Springboard</p>
+                        <p class="cert-date">Completed: 2023</p>
+                        <p class="cert-description">
+                            Comprehensive course covering python fundamentals.</p>
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">list</span>
+                            <span class="skill-badge">array</span>
+                            <span class="skill-badge">set</span>
+                            <span class="skill-badge">tuple</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="certification-card">
+                    <div class="cert-icon">
+                        <i class="fab fa-square"></i>
+                    </div>
+                    <div class="cert-content">
+                        <h3>IoT Communication</h3>
+                        <p class="cert-issuer">Coursera</p>
+                        <p class="cert-date">Completed: 2024</p>
+                        <p class="cert-description">
+                              Explored key communication protocols and networking concepts in IoT, including RF signal propagation, MAC protocols, mesh networking (RPL), and device-to-device communication. Gained hands-on experience with real-world IoT connectivity scenarios.
+                        </p>
+                        <div class="cert-skills">
+                            <span class="skill-badge">RF signals</span>
+                            <span class="skill-badge">MAC protocols</span>
+                            <span class="skill-badge">RRL</span>
+                            <span class="skill-badge">Concepts of IoT</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Get In Touch</h2>
+                <p class="section-subtitle">Let's discuss opportunities and collaborations</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Email</h3>
+                            <p>sru@gmail.com</p>
+                            <span>Feel free to reach out anytime!</span>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Phone</h3>
+                            <p>+91 </p>
+                            <span>Available Mon-Fri, 9AM-6PM</span>
+                        </div>
+                    </div>
+                    <div class="contact-card">
+                        <div class="contact-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div class="contact-details">
+                            <h3>Location</h3>
+                            <p>Coimbatore,Tamil Nadu</p>
+                            <span>Open to relocation!</span>
+                        </div>
+                    </div>
+                    <div class="contact-social">
+                        <h3>Follow Me</h3>
+                        <div class="social-links">
+                            <a href="https://github.com/sruthika1684" target="_blank" class="social-btn">
+                                <i class="fab fa-github"></i>
+                            </a>
+                            <a href="https://www.linkedin.com" target="_blank" class="social-btn">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="https://www.behance.net" target="_blank" class="social-btn">
+                                <i class="fab fa-behance"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-container">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Full Name</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" name="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">
+                            <i class="fas fa-paper-plane"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>sruthika Parthasarathi</h3>
+                    <p>Aspiring electronics engineer passionate about creating amazing web experiences. Always eager to learn and contribute to innovative projects.</p>
+                    <div class="footer-social">
+                        <a href="https://github.com/sruthika1684" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.behance.net" target="_blank">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                        
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#skills">Skills</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Services</h4>
+                    <ul>
+                        <li>Frontend Development</li>
+                        <li>Web Design</li>
+                        <li>UI/UX Design</li>
+                        <li>Database systems</li>
+                        
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <span>sru@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <span>+91 </span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Coimbatore,Tamil Nadu</span>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 sruthika parthasarathi. All rights reserved❤️.</p>
+                <button class="back-to-top" id="back-to-top">
+                    <i class="fas fa-arrow-up"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
+
+
+ 
